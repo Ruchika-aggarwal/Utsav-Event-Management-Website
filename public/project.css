@@ -1,0 +1,53 @@
+.nav-item:hover{
+    border-top: 2px solid white;
+}
+.form-control{
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+}
+.form-select:focus{
+    box-shadow: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+}
+.form-control:focus{
+    box-shadow: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+}
+input[type=email]:focus {
+    
+    box-shadow: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+}
+input[type=date]:focus {
+    
+    box-shadow: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+}
+  input[type=password]:focus {
+    border-bottom: 2px solid black;
+    box-shadow: none;
+    border-radius: 0px;
+}
+.button:focus{
+    border-bottom: 2px solid black;
+    box-shadow: none;
+    border-radius: 0px;
+}
+.select-m
+{
+    border: none;
+}
+.img {
+    
+    transition: all .2s ease-in-out;
+}
+
+.img:hover {
+    transform: scale(0.9);
+}
+

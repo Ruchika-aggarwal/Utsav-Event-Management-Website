@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <script src="js/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Qahiri&family=Tourney:ital,wght@1,700&family=Wallpoet&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kings&display=swap" rel="stylesheet">
+<link href="project.css" rel="stylesheet">
+<script>
+   var module = angular.module("kuchbhiModule", []);
+        module.controller("kuchController", function ($scope, $http) {
+            
+            
+
+            $scope.jsonArray = [];
+            //-----------------------
+            
+            //-------------
+            $scope.vendors = function () {
+                $http.get("/vendors-anni").then(fxOkKuch, fxNotOkKuch);
+
+                function fxOkKuch(responseJson) //coming from "result" var of server
+                {
+                    //alert(JSON.stringify(responseJson.data));
+                    $scope.jsonArray = responseJson.data;
+                }
+
+                function fxNotOkKuch(response) {
+                    alert(response.data);
+                }
+            }
+            //====================================
+            
+        })
+</script>
+</head>
+<body ng-app="kuchbhiModule" ng-controller="kuchController">
+  <div class="row">
+        
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="font-family: 'Kings', cursive; font-size: 30px;">utsav</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Gallery</a>
+            </li>
+           
+          </ul>
+          <form class="d-flex" method="POST">
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <!-- <button class="btn btn-outline-success" style="margin: 8px;" type="submit" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Plan Event</button> -->
+            <button class="btn btn-light" style="margin: 8px;" type="submit"
+              formaction="/client-logout">Logout</button>
+    
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+              </button> -->
+    
+    
+    
+          </form>
+        </div>
+      </div>
+    </nav>
+</div><br><br>
+
+
+    <div class="container">
+        <figure class="text-center mt-5">
+            <blockquote class="blockquote">
+              <p>Your vision, Your event, Your way.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              <cite title="Source Title">Anniversary</cite>
+            </figcaption>
+          </figure>
+          <p class="lead">
+            UTSAV is a well-reputed event management company for planning events involving grand weddings,lavish anniverseries and birthdays. We have numerous celebrities with us ready for collaboration for private events.
+            We have an incredible team of experienced and young talent who can glam up fashion shows beyond expectations. Connect with us now if you are looking for the best professionals for organising your prestigious events.
+          </p><br><br><hr>
+          <!-- <input type="button" value="Fetch All" ng-click="vendors();"> -->
+          <button type="button" class="btn btn-dark btn-lg button" ng-click="vendors();" value="show">show</button>
+          
+          <div class="card col-md-3 mt-5" ng-repeat="obj in jsonArray">
+            <img src="uploads/{{obj.proofpath}}" class="card-img-top" alt="..." style="height: 200px;"">
+            <div class="card-body">
+              
+              <h2 class="card-title">{{obj.firm}}</h2>
+              <p class="card-text">
+                <h4 class="card-title">{{obj.name}}</h4>
+                        <p>Email: {{obj.email}}</p>
+                        <p>Mobile: {{obj.contact}}</p>
+                        <p>City: {{obj.city}}</p>
+                        <p>State: {{obj.state}}</p>
+                        
+                        
+              </p>
+              
+              <a href="#" class="btn btn-dark">Connect</a>
+            
+            </div>
+            </div>
+           
+            <div class="card bg-dark text-white mt-5">
+              <img src="images/R.jpg" class="card-img" alt="" style="height: 500px;">
+              <div class="card-img-overlay" style="height: 500px;">
+                <h1 class="card-title" style="margin:70px ;color: black;text-align: center;">It Starts With Us</h1>
+                <h4 class="card-text" style="margin-top: 150px;color: black;margin-left: 100px;">
+                  “The purpose of event management is to create a client who creates other clients.”
+                </h4>
+                
+              </div>
+            </div> 
+             
+        
+        
+        
+            <!-- <div class="container mt-5">
+              <div class="row">
+                <div class="col" style="text-align: center;">
+                  Weddings||Anniversary||Birthdays
+        
+                </div> -->
+               
+            </div>
+            <footer class="bg-light text-center text-white mt-5">
+              <a class="text-black" href="#" style="margin: 15px;"><i class="fa fa-google"></i></a>
+              <a class="text-black" href="#" style="margin: 15px;"><i class="fa fa-instagram"></i></a>
+              <a class="text-black" href="#" style="margin: 15px;"><i class="fa fa-twitter"></i></a>
+              <a class="text-black" href="#" style="margin: 15px;"><i class="fa fa-facebook-f"></i></a>
+              
+              <div class="text-center p-3" style="background-color: black;">
+              
+                <a class="text-white" href="#">Wedding || Anniversary || Birthday</a>
+              </div>
+              <!-- Copyright -->
+            </footer>
+      
+</body>
+</html>
