@@ -7,8 +7,9 @@ Vendors     : The one who wants to be the organizer and offers goods
 Customers : The one who is interested in taking the benefits of goods
 
 ## Flow of the Website
+
 1.  Customer Point of View
-mermaid
+```mermaid
 graph LR
 A[Home Page] --> B((SignUP))
 B-->C
@@ -23,6 +24,7 @@ G-->H(Search for Vendor)
 H-->I(Choose the vendor Accordingly)
 I-->J(Get in touch)
 J-->K(Event Organized)
+```
 
 2.  Vendor Point of View
 ```mermaid
